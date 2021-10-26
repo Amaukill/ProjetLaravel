@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -21,19 +22,19 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('users')->insert([
             'login'=>'amaukill',
-            'password'=>'issou',
+            'password'=>Hash::make('issou'),
             'role_id'=>1
 
         ]);
         DB::table('users')->insert([
             'login'=>'loic',
-            'password'=>'loic',
+            'password'=>Hash::make('loic'),
             'role_id'=>1
 
         ]);
         DB::table('users')->insert([
             'login'=>'Brice',
-            'password'=>'apps',
+            'password'=>Hash::make('apps'),
             'role_id'=>2
 
         ]);
