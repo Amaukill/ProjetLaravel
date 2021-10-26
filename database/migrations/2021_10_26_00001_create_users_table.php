@@ -15,9 +15,9 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('name');
+            $table->string('login');
             $table->string('password');
-            $table->foreignId('profile_id')->constrained('profiles');
+            $table->foreignId('role_id')->constrained('roles');
         });
     }
 
