@@ -16,11 +16,12 @@ class CreateLogsTable extends Migration
         Schema::create('logs', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->string('action');
-            $table->date('date');
-            $table->string('old_value');
             $table->string('new_value');
             $table->foreignId('user_id')->constrained('users');
             $table->morphs('item');
+            $table->timestamps();
+            $table->softDeletes();
+
 
         });
     }

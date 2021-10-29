@@ -1,5 +1,11 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CategorieController;
+use App\Models\Categorie;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Symfony\Component\Console\Input\Input;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +27,22 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/categories',function(){
-    return view('categories');
-})->middleware(['auth'])->name('categories');
+Route::get('/categories',[CategorieController::class,'GetCategorie'])->middleware(['auth'])->name('categories');
 require __DIR__.'/auth.php';
+
+Route::get('/ajouter_categorie',function(){
+    return view('ajouter_categorie');
+})->middleware(['auth'])->name('ajouter_categorie');
+require __DIR__.'/auth.php';
+
+Route::get('/articles',function(){
+    return view('articles');
+})->middleware(['auth'])->name('articles');
+require __DIR__.'/auth.php';
+
+Route::get('/searchCat',[CategorieController::class,'GetCategorie'])->name('getCategorie');
+Route::post('/ajoutCat',[CategorieController::class, 'AddCategorie'])->name('ajoutCategorie');
+Route::get('/searchArt',[ArticleController::class,'GetArticle'])->name('getArticle');
+Route::get('/ajoutArt',[ArticleController::class,'AddArticle'])->name('ajoutArticle');
+Route::get('/getArticleByCat/{id}',[ArticleController::class,'GetArticleByCat'])->name('getArticleByCat');
+

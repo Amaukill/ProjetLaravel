@@ -17,9 +17,11 @@ class CreateCommentairesTable extends Migration
             $table->id()->autoIncrement();
             $table->string('commentaire');
             $table->integer('note');
-            $table->date('date');
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('article_id')->constrained('articles');
+            $table->timestamps();
+            $table->softDeletes();
+
 
         });
     }

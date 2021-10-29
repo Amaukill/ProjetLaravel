@@ -18,6 +18,13 @@
                     <x-nav-link :href="route('categories')" :active="request()->routeIs('categories')">
                         {{ __('Catégories') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('ajouter_categorie')" :active="request()->routeIs('ajouter_categorie')">
+                        {{ __('Ajouter une catégorie') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('articles')" :active="request()->routeIs('articles')">
+                        {{ __('Tous les articles') }}
+                    </x-nav-link>
+
                 </div>
             </div>
 

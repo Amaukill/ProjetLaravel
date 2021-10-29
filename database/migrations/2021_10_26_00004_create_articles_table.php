@@ -16,9 +16,10 @@ class CreateArticlesTable extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->string('name');
-            $table->boolean('deleted');
-            $table->foreignId('log_creation')->constrained('logs');
-            $table->foreignId('latest_log_modification')->constrained('logs');
+            $table->foreignId('log_creation')->nullable()->constrained('logs');
+            $table->foreignId('latest_log_modification')->nullable()->constrained('logs');
+            $table->timestamps();
+            $table->softDeletes();
 
         });
     }
