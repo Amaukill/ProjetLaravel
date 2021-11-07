@@ -16,7 +16,7 @@ class CreateArticlesTable extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->string('name');
-            $table->string('prix');
+            $table->string('price');
             $table->foreignId('categorie_id')->constrained('categories');
             $table->foreignId('log_creation')->nullable()->constrained('logs');
             $table->foreignId('latest_log_modification')->nullable()->constrained('logs');
