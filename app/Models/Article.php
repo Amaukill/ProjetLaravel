@@ -13,4 +13,7 @@ class Article extends Model
     public function log(){
         return $this->hasOne(Log::class);
     }
+    public function categorie(){
+        return $this->hasOne(Categorie::class);
+    }
 }

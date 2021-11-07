@@ -14,15 +14,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $categories = [
-            ['name' => 'Processeur'],
-            ['name' => 'Carte graphique'],
-            ['name' => 'Carte mère'],
-            ['name' => 'HDD'],
-            ['name' => 'SSD'],
-            ['name' => 'RAM'],
-        ];
-
         $roles = [
             ['name'=>'admin'],
             ['name'=>'user'],
@@ -35,8 +26,31 @@ class DatabaseSeeder extends Seeder
             ['login' => 'Brice', 'password'=>Hash::make('apps'), 'role_id'=>2],
         ];
 
+        $categories = [
+            ['name' => 'Processeur'],
+            ['name' => 'Carte graphique'],
+            ['name' => 'Carte mère'],
+            ['name' => 'HDD'],
+            ['name' => 'SSD'],
+            ['name' => 'RAM'],
+        ];
+
+        $articles = [
+            ['name' => 'Ryzen 5 5600X', 'categorie_id' => '1'],
+            ['name' => 'Ryzen 5 5800X', 'categorie_id' => '1'],
+            ['name' => 'RTX 3070', 'categorie_id' => '2'],
+            ['name' => 'RTX 3080', 'categorie_id' => '2'],
+            ['name' => 'GTX 730', 'categorie_id' => '2'],
+            ['name' => 'MSI B450', 'categorie_id' => '3'],
+            ['name' => 'WD 1TO', 'categorie_id' => '4'],
+            ['name' => 'Samsung 970 EVO ', 'categorie_id' => '5'],
+            ['name' => 'Hyper X 2x16Go', 'categorie_id' => '6'],
+
+        ];
+
         DB::table('roles')->insert($roles);
         DB::table('users')->insert($users);
         DB::table('categories')->insert($categories);
+        DB::table('articles')->insert($articles);
     }
 }

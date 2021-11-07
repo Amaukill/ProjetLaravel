@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategorieArticleTable extends Migration
+class CreateArticlesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,14 @@ class CreateCategorieArticleTable extends Migration
      */
     public function up()
     {
-        Schema::create('categorie_article', function (Blueprint $table) {
+        Schema::create('articles', function (Blueprint $table) {
             $table->id()->autoIncrement();
+            $table->string('name');
             $table->foreignId('categorie_id')->constrained('categories');
-            $table->foreignId('article_id')->constrained('articles');
+            $table->foreignId('log_creation')->nullable()->constrained('logs');
+            $table->foreignId('latest_log_modification')->nullable()->constrained('logs');
+            $table->timestamps();
+            $table->softDeletes();
 
         });
     }
@@ -28,6 +32,6 @@ class CreateCategorieArticleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categorie_article');
+        Schema::dropIfExists('articles');
     }
 }
