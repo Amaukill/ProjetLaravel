@@ -28,7 +28,6 @@ class ArticleController extends Controller
 
     }
     public function GetArticleByCat($id){
-        $test= 'RTX 3090';
         $articles = Article::with()->get();
             return view('articles',compact('articles'));
     }
