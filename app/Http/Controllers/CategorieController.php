@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categorie;
+use App\Models\Log;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -12,9 +13,19 @@ class CategorieController extends Controller
         $request->validate([
             'name'=> ['required','max:100','min:1']
         ]);
-        Categorie::create([
+        $cat = Categorie::create([
             'name'=>$request->name
         ]);
+
+        $log = Log::create([
+            'user_id'=> auth()->id(),
+            'action'=> 'Create',
+            'new_value'=> $cat->name,
+            'item_type'=>"categories",
+            'item_id'=> $cat->id,
+        ]);
+        $cat->log_creation = $log->id ;
+        $cat->save();
         return $this->Page();
     }
     public function GetCategorie(){
