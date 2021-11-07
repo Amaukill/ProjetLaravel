@@ -14,29 +14,29 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('roles')->insert([
-            'name'=>'admin'
-        ]);
-        DB::table('roles')->insert([
-            'name'=>'user'
-        ]);
-        DB::table('users')->insert([
-            'login'=>'amaukill',
-            'password'=>Hash::make('issou'),
-            'role_id'=>1
+        $categories = [
+            ['name' => 'Processeur'],
+            ['name' => 'Carte graphique'],
+            ['name' => 'Carte mère'],
+            ['name' => 'HDD'],
+            ['name' => 'SSD'],
+            ['name' => 'RAM'],
+        ];
 
-        ]);
-        DB::table('users')->insert([
-            'login'=>'loic',
-            'password'=>Hash::make('loic'),
-            'role_id'=>1
+        $roles = [
+            ['name'=>'admin'],
+            ['name'=>'user'],
+        ];
 
-        ]);
-        DB::table('users')->insert([
-            'login'=>'Brice',
-            'password'=>Hash::make('apps'),
-            'role_id'=>2
 
-        ]);
+        $users = [
+            ['login' => 'amaukill', 'password'=>Hash::make('issou'), 'role_id'=>1],
+            ['login' => 'loic', 'password'=>Hash::make('loic'), 'role_id'=>1],
+            ['login' => 'Brice', 'password'=>Hash::make('apps'), 'role_id'=>2],
+        ];
+
+        DB::table('roles')->insert($roles);
+        DB::table('users')->insert($users);
+        DB::table('categories')->insert($categories);
     }
 }
