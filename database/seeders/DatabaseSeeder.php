@@ -36,15 +36,15 @@ class DatabaseSeeder extends Seeder
         ];
 
         $articles = [
-            ['name' => 'Ryzen 5 5600X', 'categorie_id' => '1'],
-            ['name' => 'Ryzen 5 5800X', 'categorie_id' => '1'],
-            ['name' => 'RTX 3070', 'categorie_id' => '2'],
-            ['name' => 'RTX 3080', 'categorie_id' => '2'],
-            ['name' => 'GTX 730', 'categorie_id' => '2'],
-            ['name' => 'MSI B450', 'categorie_id' => '3'],
-            ['name' => 'WD 1TO', 'categorie_id' => '4'],
-            ['name' => 'Samsung 970 EVO ', 'categorie_id' => '5'],
-            ['name' => 'Hyper X 2x16Go', 'categorie_id' => '6'],
+            ['name' => 'Ryzen 5 5600X', 'prix' => '350€', 'categorie_id' => '1'],
+            ['name' => 'Ryzen 5 5800X', 'prix' => '450€', 'categorie_id' => '1'],
+            ['name' => 'RTX 3070', 'prix' => '800€', 'categorie_id' => '2'],
+            ['name' => 'RTX 3080', 'prix' => '1500€', 'categorie_id' => '2'],
+            ['name' => 'GTX 730', 'prix' => '2€', 'categorie_id' => '2'],
+            ['name' => 'MSI B450', 'prix' => '100€', 'categorie_id' => '3'],
+            ['name' => 'WD 1TO', 'prix' => '50€', 'categorie_id' => '4'],
+            ['name' => 'Samsung 970 EVO ', 'prix' => '100€', 'categorie_id' => '5'],
+            ['name' => 'Hyper X 2x16Go', 'prix' => '120€', 'categorie_id' => '6'],
 
         ];
 
