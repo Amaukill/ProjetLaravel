@@ -8,7 +8,7 @@
         <form  action="{{route('ajoutCategorie')}}" method="POST" role="search" class="form-inline my-2 my-lg-0" class="d-flex flex-row">
             @csrf
             <div class="d-flex flex-row">
-                <input class="form-control mr-sm-2" type="text" name="name" placeholder="Ajouter catégorie" id="name=">
+                <input class="form-control mr-sm-2" type="text" name="name" placeholder="Ajouter catégorie" id="name=" required>
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ajouter</button>
             </div>
         </form>

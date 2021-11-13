@@ -17,6 +17,7 @@ class CreateArticlesTable extends Migration
             $table->id()->autoIncrement();
             $table->string('name');
             $table->string('price');
+            $table->string('description');
             $table->foreignId('categorie_id')->constrained('categories');
             $table->foreignId('log_creation')->nullable()->constrained('logs');
             $table->foreignId('latest_log_modification')->nullable()->constrained('logs');

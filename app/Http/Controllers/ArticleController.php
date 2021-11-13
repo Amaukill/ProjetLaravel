@@ -16,6 +16,7 @@ class ArticleController extends Controller
         $request->validate([
             'name'=> ['required','max:100','min:1'],
             'price'=> ['required','max:100','min:1'],
+            'description'=> ['required','integer','not_in:0'],
             'id'=> ['required','max:999','min:1'],
         ]);
 
@@ -23,6 +24,7 @@ class ArticleController extends Controller
             'name'=>$request->name,
             'price'=>$request->price,
             'categorie_id'=>$request->id,
+            'description'=>$request->description,
         ]);
         $log = Log::create([
             'user_id'=> auth()->id(),
