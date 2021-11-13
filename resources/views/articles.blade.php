@@ -33,7 +33,12 @@
                     @foreach($articles as $query)
                     <tr>
                         <td>{{$query->name}}</td>
-                        <td>{{$query->price}}€</td>
+                        <td>{{$query->price}}</td>
+                        @if(Auth::user()->role_id == 1)
+
+                            <td><a  href="ModifyArticle/{{$query->id}}"><i class="fa fa-cog"></i></a></td>
+
+                            @endif
                     </tr>
                     @endforeach
                 </tbody>

@@ -24,5 +24,8 @@
         "sass": "^1.43.4",
         "sass-loader": "^11.0.1",
         "tailwindcss": "^2.0.2"
+    },
+    "dependencies": {
+        "font-awesome": "^4.7.0"
     }
 }

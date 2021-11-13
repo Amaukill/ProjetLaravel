@@ -45,4 +45,4 @@ Route::post('/ajoutCat',[CategorieController::class, 'AddCategorie'])->name('ajo
 Route::get('/searchArt',[ArticleController::class,'GetArticle'])->name('getArticle');
 Route::post('/ajoutArt',[ArticleController::class,'AddArticle'])->name('ajoutArticle');
 Route::get('/getArticleByCat/{id}',[ArticleController::class,'GetArticleByCat'])->name('getArticleByCat');
-
+Route::post('/ModifyArt/{id}',[CategorieController::class, 'ModifyArticle'])->name('ModifyArticle');

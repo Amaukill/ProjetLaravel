@@ -30,12 +30,41 @@ class ArticleController extends Controller
             'user_id'=> auth()->id(),
             'action'=> 'Create',
             'new_value'=> $article->name,
-            'item_type'=>"categories",
+            'item_type'=>"articles",
             'item_id'=> $article->id,
         ]);
         $article->log_creation = $log->id ;
         $article->save();
         return $this->GetArticleByCat($article->categorie_id);
+    }
+    public function ModifyArticle(Request $request, int $id){
+        $article=Article::find($id);
+        $request->validate([
+            'name'=> ['max:100','min:1'],
+            'price'=> ['max:100','min:1']
+        ]);
+        $modif = '';
+        if(is_null($request->name) == false) {
+            $article->name=$request->name;
+            $modif += $request->name;
+        }
+        if (is_null($request->name) == false && is_null($request->price) == false){
+            $modif +=',';
+        }
+        if(is_null($request->price) == false) {
+            $article->prix=$request->price;
+            $modif += $request->price;
+        }
+        $log = Log::create([
+            'user_id'=> auth()->id(),
+            'action'=> 'Modification',
+            'new_value'=> $modif,
+            'item_type'=>"articles",
+            'item_id'=> $article->id,
+        ]);
+        $article->log_modication= $log->id ;
+        $article->save();
+        return $this->Page();
     }
     public function GetArticle(){
 
@@ -43,6 +72,10 @@ class ArticleController extends Controller
         return view("articles", compact('articles'));
 
 
+    }
+    public function GetArticleById(int $id){
+        $articles = Article::find($id);
+        return view("modify_article", compact('articles'));
     }
     public function GetArticleByCat($id){
         $articles = Article::where('categorie_id', $id)->get();
