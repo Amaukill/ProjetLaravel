@@ -5,14 +5,17 @@
             {{ __('Articles') }}
         </h2>
 
-    <div class="d-flex flex-row justify-content-between ">
-        <form  action="{{route('getArticle')}}" method="GET" role="search" class="form-inline my-2 my-lg-0" class="d-flex flex-row">
-            <div class="d-flex flex-row">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </div>
-        </form>
-    </div>
+        <div class="d-flex flex-row justify-content-between ">
+            <form  method="POST"  action="{{route('ajoutArticle')}}" role="search" class="form-inline my-2 my-lg-0" class="d-flex flex-row">
+                @csrf
+                <div class="d-flex flex-row">
+                    <input class="form-control mr-sm-2" type="text" name="name" placeholder="Nom" id='name' >
+                    <input class="form-control mr-sm-2" type="text" name="price" placeholder="Prix" id='prix' >
+                    <input type="text" name="id" placeholder="id" id='id' value="{{$id}}" hidden>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ajouter</button>
+                </div>
+            </form>
+        </div>
 
     <form  action="{{route('getArticle')}}" method="GET">
         <div class="container">

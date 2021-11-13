@@ -26,7 +26,7 @@ class CategorieController extends Controller
         ]);
         $cat->log_creation = $log->id ;
         $cat->save();
-        return $this->Page();
+        return $this->GetCategorie();
     }
     public function GetCategorie(){
 

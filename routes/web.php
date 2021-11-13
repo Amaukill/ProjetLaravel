@@ -43,6 +43,6 @@ require __DIR__.'/auth.php';
 Route::get('/searchCat',[CategorieController::class,'GetCategorie'])->name('getCategorie');
 Route::post('/ajoutCat',[CategorieController::class, 'AddCategorie'])->name('ajoutCategorie');
 Route::get('/searchArt',[ArticleController::class,'GetArticle'])->name('getArticle');
-Route::get('/ajoutArt',[ArticleController::class,'AddArticle'])->name('ajoutArticle');
+Route::post('/ajoutArt',[ArticleController::class,'AddArticle'])->name('ajoutArticle');
 Route::get('/getArticleByCat/{id}',[ArticleController::class,'GetArticleByCat'])->name('getArticleByCat');
 
