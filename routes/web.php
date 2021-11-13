@@ -3,7 +3,6 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\DescriptionController;
-
 use App\Models\Categorie;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -53,5 +52,4 @@ Route::get('/searchArt',[ArticleController::class,'GetArticle'])->name('getArtic
 Route::post('/ajoutArt',[ArticleController::class,'AddArticle'])->name('ajoutArticle');
 Route::get('/Article/{id}',[ArticleController::class,'GetArticleByCat'])->name('getArticleByCat');
 Route::get('/Article/Descriptions/{id}',[DescriptionController::class,'GetArticleDescription'])->name('getArticleDescription');
-
-
+Route::post('/Article/ModifyArt/{id}',[CategorieController::class, 'ModifyArticle'])->name('ModifyArticle');

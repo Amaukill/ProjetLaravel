@@ -19,6 +19,7 @@
             </form>
         </div>
 
+    <form  action="{{route('getArticle')}}" method="GET">
         <div class="container">
             @if(isset($articles))
             <br>
@@ -35,7 +36,12 @@
                         <td>
                             <a href="Descriptions/{{$query->id}}">{{$query->name}}</a>
                         </td>
-                        <td>{{$query->price}}€</td>
+                        <td>{{$query->price}}</td>
+                        @if(Auth::user()->role_id == 1)
+
+                            <td><a  href="ModifyArticle/{{$query->id}}"><i class="fa fa-cog"></i></a></td>
+
+                            @endif
                     </tr>
                     @endforeach
                 </tbody>
@@ -43,6 +49,7 @@
             @else
             @endif
         </div>
+    </form>
 
     </x-slot>
 </x-app-layout>
