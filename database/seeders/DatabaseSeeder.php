@@ -46,8 +46,25 @@ class DatabaseSeeder extends Seeder
         ];
 
         $commentaires = [
-            ['commentaire' => 'commentaire 1', 'note'=> '5','user_id'=>'1', 'article_id'=>'1', 'created_at' => '2021-11-10 21:06:55'],
-            ['commentaire' => 'commentaire 2', 'note'=> '5', 'user_id'=>'2', 'article_id'=>'1', 'created_at' => '2021-11-10 21:06:55'],
+            ['commentaire' => 'Super !', 'note'=> '5','user_id'=>'1', 'article_id'=>'1', 'created_at' => '2021-11-10 21:06:55'],
+            ['commentaire' => 'Bof', 'note'=> '2', 'user_id'=>'2', 'article_id'=>'1', 'created_at' => '2021-11-10 21:06:55'],
+            ['commentaire' => 'Super !', 'note'=> '5','user_id'=>'1', 'article_id'=>'2', 'created_at' => '2021-11-10 21:06:55'],
+            ['commentaire' => 'Bof', 'note'=> '2', 'user_id'=>'2', 'article_id'=>'2', 'created_at' => '2021-11-10 21:06:55'],
+            ['commentaire' => 'Super !', 'note'=> '5','user_id'=>'1', 'article_id'=>'3', 'created_at' => '2021-11-10 21:06:55'],
+            ['commentaire' => 'Bof', 'note'=> '2', 'user_id'=>'2', 'article_id'=>'3', 'created_at' => '2021-11-10 21:06:55'],
+            ['commentaire' => 'Super !', 'note'=> '5','user_id'=>'1', 'article_id'=>'4', 'created_at' => '2021-11-10 21:06:55'],
+            ['commentaire' => 'Bof', 'note'=> '2', 'user_id'=>'2', 'article_id'=>'4', 'created_at' => '2021-11-10 21:06:55'],
+            ['commentaire' => 'Super !', 'note'=> '5','user_id'=>'1', 'article_id'=>'5', 'created_at' => '2021-11-10 21:06:55'],
+            ['commentaire' => 'Bof', 'note'=> '2', 'user_id'=>'2', 'article_id'=>'5', 'created_at' => '2021-11-10 21:06:55'],
+            ['commentaire' => 'Super !', 'note'=> '5','user_id'=>'1', 'article_id'=>'6', 'created_at' => '2021-11-10 21:06:55'],
+            ['commentaire' => 'Bof', 'note'=> '2', 'user_id'=>'2', 'article_id'=>'6', 'created_at' => '2021-11-10 21:06:55'],
+            ['commentaire' => 'Super !', 'note'=> '5','user_id'=>'1', 'article_id'=>'7', 'created_at' => '2021-11-10 21:06:55'],
+            ['commentaire' => 'Bof', 'note'=> '2', 'user_id'=>'2', 'article_id'=>'7', 'created_at' => '2021-11-10 21:06:55'],
+            ['commentaire' => 'Super !', 'note'=> '5','user_id'=>'1', 'article_id'=>'8', 'created_at' => '2021-11-10 21:06:55'],
+            ['commentaire' => 'Bof', 'note'=> '2', 'user_id'=>'2', 'article_id'=>'8', 'created_at' => '2021-11-10 21:06:55'],
+            ['commentaire' => 'Super !', 'note'=> '5','user_id'=>'1', 'article_id'=>'9', 'created_at' => '2021-11-10 21:06:55'],
+            ['commentaire' => 'Bof', 'note'=> '2', 'user_id'=>'2', 'article_id'=>'9', 'created_at' => '2021-11-10 21:06:55'],
+
         ];
 
         DB::table('roles')->insert($roles);
