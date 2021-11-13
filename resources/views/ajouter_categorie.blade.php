@@ -1,3 +1,5 @@
+@if(Auth::user()->role_id == 1)
+
 <x-app-layout>
     <x-slot name="header"  >
         <h2 class="font-semibold text-xl text-gray-800 leading-tight pb-2">
@@ -12,5 +14,13 @@
             </div>
         </form>
         </div>
+    </x-slot>
+</x-app-layout>
+@endif
+<x-app-layout>
+    <x-slot name="header"  >
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight pb-2">
+            Vous n'avez pas accès a cette page
+        </h2>
     </x-slot>
 </x-app-layout>

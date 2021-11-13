@@ -41,6 +41,9 @@ Route::get('/articles',function(){
     return view('articles');
 })->middleware(['auth'])->name('articles');
 require __DIR__.'/auth.php';
+Route::get('/Modify_Article',function(){
+    return view('modify_article');
+})->middleware(['auth'])->name('modify_article');
 
 Route::get('/Descriptions',function(){
     return view('Descriptions');
@@ -54,5 +57,7 @@ Route::get('/searchArt',[ArticleController::class,'GetArticle'])->name('getArtic
 Route::post('/ajoutArt',[ArticleController::class,'AddArticle'])->name('ajoutArticle');
 Route::get('/Article/{id}',[ArticleController::class,'GetArticleByCat'])->name('getArticleByCat');
 Route::get('/Article/Descriptions/{id}',[DescriptionController::class,'GetArticleDescription'])->name('getArticleDescription');
-Route::post('/Article/ModifyArt/{id}',[CategorieController::class, 'ModifyArticle'])->name('ModifyArticle');
 Route::post('/ajoutCommentaire',[DescriptionController::class,'ajoutCommentaire'])->name('ajoutCommentaire');
+Route::get('/getArticleByCat/{id}',[ArticleController::class,'GetArticleByCat'])->name('getArticleByCat');
+Route::get('/ModifyArticle/{id}',[ArticleController::class, 'GetArticleById'])->name('ModifyArticle');
+Route::post('/ModifyArticle/{id}',[ArticleController::class, 'ModifyArticle'])->name('ModifyArticleId');
