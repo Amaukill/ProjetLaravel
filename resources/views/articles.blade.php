@@ -30,16 +30,16 @@
                         </tr>
                     </thead>
                 <tbody>
-                    @foreach($articles as $query)
+                    @foreach($articles as $key=>$value)
                     <tr>
-                        <td>{{$query->id}}</td>
+                        <td>{{$key +1}}</td>
                         <td>
-                            <a href="Descriptions/{{$query->id}}">{{$query->name}}</a>
+                            <a href="Descriptions/{{$value->id}}">{{$value->name}}</a>
                         </td>
-                        <td>{{$query->price}}€</td>
+                        <td>{{$value->price}}€</td>
                         @if(Auth::user()->role_id == 1)
 
-                            <td><a  href="/ModifyArticle/{{$query->id}}"><i class="fa fa-cog"></i></a></td>
+                            <td><a  href="/ModifyArticle/{{$value->id}}"><i class="fa fa-cog"></i></a></td>
 
                             @endif
                     </tr>
