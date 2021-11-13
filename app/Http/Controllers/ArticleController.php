@@ -10,16 +10,17 @@ use Illuminate\View\View;
 
 class ArticleController extends Controller
 {
+    // création des articles a partir du formulaire récupéré
     public function AddArticle(Request $request){
         error_log('Some message here.');
-
+//vérifie si les valeurs sont bien définie
         $request->validate([
             'name'=> ['required','max:100','min:1'],
             'price'=> ['required','max:100','min:1'],
             'description'=> ['required','integer','not_in:0'],
             'id'=> ['required','max:999','min:1'],
         ]);
-
+// création de l'article  et du log puis retour a la liste des articles
         $article=Article::create([
             'name'=>$request->name,
             'price'=>$request->price,
@@ -37,24 +38,35 @@ class ArticleController extends Controller
         $article->save();
         return $this->GetArticleByCat($article->categorie_id);
     }
-    public function ModifyArticle(Request $request, int $id){
+    // fonction qui récupère le formulaire et l'id de l'article à modifier
+    public function ModifyArticle(Request $request, $id){
         $article=Article::find($id);
         $request->validate([
-            'name'=> ['max:100','min:1'],
-            'price'=> ['max:100','min:1']
+            'name'=> ['max:100','min:0'],
+            'price'=> ['max:100','min:0'],
+            'description'=> ['max:500','min:0']
         ]);
+        // update en fonction des valeurs récupéré
         $modif = '';
         if(is_null($request->name) == false) {
             $article->name=$request->name;
-            $modif += $request->name;
+            $modif .= $request->name;
         }
         if (is_null($request->name) == false && is_null($request->price) == false){
-            $modif +=',';
+            $modif .=',';
         }
         if(is_null($request->price) == false) {
-            $article->prix=$request->price;
-            $modif += $request->price;
+            $article->price=$request->price;
+            $modif .= $request->price;
         }
+        if (is_null($request->name) == false && is_null($request->price) == false && is_null($request->description) == false){
+            $modif .=',';
+        }
+        if(is_null($request->description) == false) {
+            $article->description=$request->description;
+            $modif .= $request->description;
+        }
+        // création du log
         $log = Log::create([
             'user_id'=> auth()->id(),
             'action'=> 'Modification',
@@ -62,10 +74,12 @@ class ArticleController extends Controller
             'item_type'=>"articles",
             'item_id'=> $article->id,
         ]);
-        $article->log_modication= $log->id ;
+        $article->latest_log_modification= $log->id ;
         $article->save();
-        return $this->Page();
+        //retour sur la page de modification avec les valeurs modifié
+        return $this->GetArticleById($id);
     }
+
     public function GetArticle(){
 
         $articles = Article::all();
@@ -73,10 +87,12 @@ class ArticleController extends Controller
 
 
     }
-    public function GetArticleById(int $id){
-        $articles = Article::find($id);
-        return view("modify_article", compact('articles'));
+    //récupération d'un article précis
+    public function GetArticleById($id){
+        $article = Article::find($id);
+        return view("modify_article", compact('article','id'));
     }
+    //récupération des articles appartenant à l'id de la catégorie récupéré
     public function GetArticleByCat($id){
         $articles = Article::where('categorie_id', $id)->get();
         return view('articles',compact('articles', 'id'));

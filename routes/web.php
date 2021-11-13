@@ -39,10 +39,14 @@ Route::get('/articles',function(){
     return view('articles');
 })->middleware(['auth'])->name('articles');
 require __DIR__.'/auth.php';
+Route::get('/Modify_Article',function(){
+    return view('modify_article');
+})->middleware(['auth'])->name('modify_article');
 
 Route::get('/searchCat',[CategorieController::class,'GetCategorie'])->name('getCategorie');
 Route::post('/ajoutCat',[CategorieController::class, 'AddCategorie'])->name('ajoutCategorie');
 Route::get('/searchArt',[ArticleController::class,'GetArticle'])->name('getArticle');
 Route::post('/ajoutArt',[ArticleController::class,'AddArticle'])->name('ajoutArticle');
 Route::get('/getArticleByCat/{id}',[ArticleController::class,'GetArticleByCat'])->name('getArticleByCat');
-Route::post('/ModifyArt/{id}',[CategorieController::class, 'ModifyArticle'])->name('ModifyArticle');
+Route::get('/ModifyArticle/{id}',[ArticleController::class, 'GetArticleById'])->name('ModifyArticle');
+Route::post('/ModifyArticle/{id}',[ArticleController::class, 'ModifyArticle'])->name('ModifyArticleId');
