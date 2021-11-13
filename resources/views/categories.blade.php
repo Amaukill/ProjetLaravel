@@ -26,7 +26,7 @@
                     @foreach($categorie as $query)
                         <tr>
                             <td>
-                            <a href="getArticleByCat/{{$query->id}}">{{$query->name}}</a>
+                            <a href="Article/{{$query->id}}">{{$query->name}}</a>
                             </td>
                         </tr>
                     @endforeach

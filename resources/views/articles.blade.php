@@ -19,7 +19,6 @@
             </form>
         </div>
 
-    <form  action="{{route('getArticle')}}" method="GET">
         <div class="container">
             @if(isset($articles))
             <br>
@@ -32,7 +31,10 @@
                 <tbody>
                     @foreach($articles as $query)
                     <tr>
-                        <td>{{$query->name}}</td>
+                        <td>{{$query->id}}</td>
+                        <td>
+                            <a href="Descriptions/{{$query->id}}">{{$query->name}}</a>
+                        </td>
                         <td>{{$query->price}}€</td>
                     </tr>
                     @endforeach
@@ -41,7 +43,6 @@
             @else
             @endif
         </div>
-    </form>
 
     </x-slot>
 </x-app-layout>
