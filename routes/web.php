@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\DescriptionController;
+use App\Http\Controllers\CommentaireController;
 use App\Models\Categorie;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -46,6 +47,7 @@ Route::get('/Descriptions',function(){
 })->middleware(['auth'])->name('Descriptions');
 require __DIR__.'/auth.php';
 
+
 Route::get('/searchCat',[CategorieController::class,'GetCategorie'])->name('getCategorie');
 Route::post('/ajoutCat',[CategorieController::class, 'AddCategorie'])->name('ajoutCategorie');
 Route::get('/searchArt',[ArticleController::class,'GetArticle'])->name('getArticle');
@@ -53,3 +55,4 @@ Route::post('/ajoutArt',[ArticleController::class,'AddArticle'])->name('ajoutArt
 Route::get('/Article/{id}',[ArticleController::class,'GetArticleByCat'])->name('getArticleByCat');
 Route::get('/Article/Descriptions/{id}',[DescriptionController::class,'GetArticleDescription'])->name('getArticleDescription');
 Route::post('/Article/ModifyArt/{id}',[CategorieController::class, 'ModifyArticle'])->name('ModifyArticle');
+Route::post('/ajoutCommentaire',[DescriptionController::class,'ajoutCommentaire'])->name('ajoutCommentaire');

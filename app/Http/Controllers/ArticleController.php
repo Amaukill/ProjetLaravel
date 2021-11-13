@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Article;
+use App\Models\Commentaire;
 use App\Models\Log;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
