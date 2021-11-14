@@ -28,7 +28,7 @@
                         @if(Auth::user()->role_id == 1)
 
                             <td><a  href="/ArticleToModify/{{$value->id}}"><i class="fa fa-cog"></i></a></td>
-
+                            <td><a  href="/DeleteArticle/{{$value->id}}"><i class="fa fa-times"></i></a></td>
                             @endif
                     </tr>
                     @endforeach

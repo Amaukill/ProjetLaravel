@@ -72,3 +72,7 @@ Route::post('/ModifyArticle/{id}',[ArticleController::class, 'ModifyArticle'])->
 Route::post('/FindLogs',[LogController::class, 'FindLogs'])->name('FindLogs');
 Route::get('/CategorieToModify/{id}',[CategorieController::class, 'GetCategorieById'])->name('CategorieToModify');
 Route::post('/ModifyCategorie/{id}',[CategorieController::class, 'ModifyCategorie'])->name('ModifyCategorieId');
+
+Route::get('/DeleteArticle/{id}',[ArticleController::class, 'DeleteArticle'])->name('DeleteArticle');
+Route::get('/DeleteCategorie/{id}',[CategorieController::class, 'DeleteCategorie'])->name('DeleteCategorie');
+Route::get('/DeleteComment/{id}',[DescriptionController::class, 'DeleteCommentByUser_Id'])->name('DeleteComment');

@@ -47,7 +47,7 @@ class ArticleController extends Controller
             'name'=> ['max:100','min:0'],
             'price'=> ['max:100','min:0'],
             'description'=> ['max:500','min:0'],
-            'id_cat'=> ['max:100','min:0'],
+
         ]);
         // update en fonction des valeurs récupéré
         $modif = '';
@@ -81,6 +81,20 @@ class ArticleController extends Controller
         $article->save();
         //retour sur la page de modification avec les valeurs modifié
         return $this->GetArticleById($id);
+    }
+    // suppression de l'article et création du log de suppression
+    public function DeleteArticle($id){
+        $article = Article::find($id);
+        Log::create([
+            'user_id'=> auth()->id(),
+            'action'=> 'Suppression',
+            'new_value'=> $article->name,
+            'item_type'=>"articles",
+            'item_id'=> $article->id,
+        ]);
+        Commentaire::where('article_id', $id)->delete();
+        $article->delete();
+        return $this->GetArticles();
     }
 
     public function GetArticles(){

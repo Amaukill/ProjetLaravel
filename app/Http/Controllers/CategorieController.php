@@ -54,6 +54,18 @@ class CategorieController extends Controller
         //retour sur la page de modification avec les valeurs modifié
         return $this->GetCategorieById($id);
     }
+    public function DeleteCategorie($id){
+        $categorie = Categorie::find($id);
+        $log =Log::create([
+            'user_id'=> auth()->id(),
+            'action'=> 'Suppression',
+            'new_value'=> $categorie->name,
+            'item_type'=>"categorie",
+            'item_id'=> $categorie->id,
+        ]);
+        $categorie->delete();
+        return $this->GetCategorie();
+    }
     public function GetCategorieById($id){
             $categorie = Categorie::find($id);
             return view("modify_categorie", compact('categorie','id'));

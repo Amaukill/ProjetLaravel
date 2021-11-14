@@ -42,6 +42,9 @@
                         <h5 class="card-title">Par {{$login[$key][0]->login}} le {{$value->created_at}} </h5>
                         <p>note : {{$value->note}}</p>
                         <p class="card-text">{{$value->commentaire}}.</p>
+                        @if(Auth::user()->role_id == 1 || Auth::user()->id == $login[$key][0]->id)
+                        <a  href="/DeleteComment/{{$value->id}}"><i class="fa fa-times"></i></a>
+                        @endif
                     </div>
                 </div>
                 @endforeach

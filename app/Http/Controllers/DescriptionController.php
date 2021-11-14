@@ -39,7 +39,11 @@ class DescriptionController extends Controller {
         return $this->GetArticleDescription($request->article_id);
     }
 
-    public function Page(){
-        return view("/ajouter_article");
-    }
+        public function DeleteCommentByUser_Id($id){
+        $commentaire=Commentaire::find($id);
+            $articleId= $commentaire->article_id;
+            $commentaire->delete();
+        return $this->GetArticleDescription($articleId);
+        }
+
 }
