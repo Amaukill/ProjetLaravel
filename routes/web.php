@@ -64,7 +64,7 @@ Route::post('/ajoutCat',[CategorieController::class, 'AddCategorie'])->name('ajo
 Route::get('/Article',[ArticleController::class,'GetArticles'])->name('getArticles');
 Route::post('/AjoutArticle',[ArticleController::class,'AddArticle'])->name('AddArticle');
 Route::get('/Article/{id}',[ArticleController::class,'GetArticleByCat'])->name('getArticleByCat');
-Route::get('/Article/Descriptions/{id}',[DescriptionController::class,'GetArticleDescription'])->name('getArticleDescription');
+Route::get('/Descriptions/{id}',[DescriptionController::class,'GetArticleDescription'])->name('getArticleDescription');
 Route::post('/ajoutCommentaire',[DescriptionController::class,'ajoutCommentaire'])->name('ajoutCommentaire');
 Route::get('/getArticleByCat/{id}',[ArticleController::class,'GetArticleByCat'])->name('getArticleByCat');
 Route::get('/ArticleToModify/{id}',[ArticleController::class, 'GetArticleById'])->name('ArticleToModify');

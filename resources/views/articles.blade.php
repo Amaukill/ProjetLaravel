@@ -22,12 +22,12 @@
                     <tr>
                         <td>{{$key +1}}</td>
                         <td>
-                            <a href="Descriptions/{{$value->id}}">{{$value->name}}</a>
+                            <a href="/Descriptions/{{$value->id}}">{{$value->name}}</a>
                         </td>
                         <td>{{$value->price}}€</td>
                         @if(Auth::user()->role_id == 1)
 
-                            <td><a  href="/ModifyArticle/{{$value->id}}"><i class="fa fa-cog"></i></a></td>
+                            <td><a  href="/ArticleToModify/{{$value->id}}"><i class="fa fa-cog"></i></a></td>
 
                             @endif
                     </tr>
