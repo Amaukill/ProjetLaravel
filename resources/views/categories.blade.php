@@ -3,16 +3,7 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight pb-2">
             {{ __('Catégories') }}
         </h2>
-        <div class="d-flex flex-row justify-content-between ">
 
-        <form  action="{{route('ajoutCategorie')}}" method="POST" role="search" class="form-inline my-2 my-lg-0" class="d-flex flex-row">
-            @csrf
-            <div class="d-flex flex-row">
-                <input class="form-control mr-sm-2" type="text" name="name" placeholder="Ajouter catégorie" id="name=" required>
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ajouter</button>
-            </div>
-        </form>
-        </div>
         <div class="container">
             @if(isset($categorie))
                 <br>
@@ -28,6 +19,11 @@
                             <td>
                             <a href="Article/{{$query->id}}">{{$query->name}}</a>
                             </td>
+                            @if(Auth::user()->role_id == 1)
+
+                                <td><a  href="/CategorieToModify/{{$query->id}}"><i class="fa fa-cog"></i></a></td>
+
+                            @endif
                         </tr>
                     @endforeach
                     </tbody>

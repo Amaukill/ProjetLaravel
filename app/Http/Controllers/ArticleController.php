@@ -13,13 +13,14 @@ class ArticleController extends Controller
 {
     // création des articles a partir du formulaire récupéré
     public function AddArticle(Request $request){
-        error_log('Some message here.');
+
 //vérifie si les valeurs sont bien définie
         $request->validate([
             'name'=> ['required','max:100','min:1'],
             'price'=> ['required','max:100','min:1'],
-            'description'=> ['required','integer','not_in:0'],
+            'description'=> ['max:500','min:0'],
             'id'=> ['required','max:999','min:1'],
+
         ]);
 // création de l'article  et du log puis retour a la liste des articles
         $article=Article::create([
@@ -45,7 +46,8 @@ class ArticleController extends Controller
         $request->validate([
             'name'=> ['max:100','min:0'],
             'price'=> ['max:100','min:0'],
-            'description'=> ['max:500','min:0']
+            'description'=> ['max:500','min:0'],
+            'id_cat'=> ['max:100','min:0'],
         ]);
         // update en fonction des valeurs récupéré
         $modif = '';
@@ -81,7 +83,7 @@ class ArticleController extends Controller
         return $this->GetArticleById($id);
     }
 
-    public function GetArticle(){
+    public function GetArticles(){
         $articles = Article::all();
         return view("articles", compact('articles'));
     }

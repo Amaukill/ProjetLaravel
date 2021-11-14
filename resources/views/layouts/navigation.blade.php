@@ -22,10 +22,17 @@
                     <x-nav-link :href="route('ajouter_categorie')" :active="request()->routeIs('ajouter_categorie')">
                         {{ __('Ajouter une catégorie') }}
                     </x-nav-link>
+                        <x-nav-link :href="route('AjoutArticle')" :active="request()->routeIs('AjoutArticle')">
+                            {{ __('Ajouter un article') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('Logs')" :active="request()->routeIs('logs')">
+                            {{ __('Recherche des logs') }}
+                        </x-nav-link>
                     @endif
-                    <x-nav-link :href="route('articles')" :active="request()->routeIs('articles')">
+                    <x-nav-link href="/Article" :active="request()->routeIs('getArticles')">
                         {{ __('Tous les articles') }}
                     </x-nav-link>
+
 
                 </div>
             </div>
