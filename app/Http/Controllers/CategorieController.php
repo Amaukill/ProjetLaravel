@@ -70,6 +70,7 @@ class CategorieController extends Controller
             $categorie = Categorie::find($id);
             return view("modify_categorie", compact('categorie','id'));
     }
+    //Récupère toutes les catégories pour les afficher sur la page catégories
     public function GetCategorie(){
 
        $categorie = Categorie::all();

@@ -14,7 +14,7 @@ class ArticleController extends Controller
     // création des articles a partir du formulaire récupéré
     public function AddArticle(Request $request){
 
-//vérifie si les valeurs sont bien définie
+        //vérifie si les valeurs sont bien définie
         $request->validate([
             'name'=> ['required','max:100','min:1'],
             'price'=> ['required','max:100','min:1'],
@@ -22,7 +22,7 @@ class ArticleController extends Controller
             'id'=> ['required','max:999','min:1'],
 
         ]);
-// création de l'article  et du log puis retour a la liste des articles
+        // création de l'article  et du log puis retour a la liste des articles
         $article=Article::create([
             'name'=>$request->name,
             'price'=>$request->price,

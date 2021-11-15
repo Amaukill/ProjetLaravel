@@ -9,6 +9,7 @@
 
     <form  action="{{route('getArticles')}}" method="GET">
         <div class="container">
+            {{-- Si la catégorie séléctionner contient des articles, ont les affiches --}}}
             @if(isset($articles))
             <br>
                 <table class="table table-striped">

@@ -1,3 +1,4 @@
+
 <x-app-layout>
     <x-slot name="header"  >
         <h2 class="font-semibold text-xl text-gray-800 leading-tight pb-2">
@@ -18,10 +19,12 @@
             </h3>
         </h2>
         <br>
+        {{-- Si des commentaires sont présents pour l'articles séléctionné ont les affiches --}}
         @if(isset($Commentaire))
             <h1>Commentaire :</h1>
             <br>
             Ajouter un commentaire
+            {{-- Formulaire pour l'ajout d'un commentaire --}}
             <div class="flex-row justify-content-between ">
                 <form  method="POST"  action="{{route('ajoutCommentaire')}}" role="search" class="form-inline my-2 my-lg-0" class="d-flex flex-row">
                     @csrf
@@ -36,6 +39,7 @@
             </div>
             <br>
             <div class="card" style="width: 30rem;">
+            {{-- Ont affiches chacun des commentaires --}}
             @foreach($Commentaire as $key=>$value)
                 <div class="card" style="width: 30rem;">
                     <div class="card-body">

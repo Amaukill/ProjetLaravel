@@ -13,17 +13,18 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run() {
+        //Rajout les roles admin et user
         $roles = [
             ['name'=>'admin'],
             ['name'=>'user'],
         ];
-
+        //Rajout de trois utilisateurs : amaukill, loic et Brice
         $users = [
             ['login' => 'amaukill', 'password'=>Hash::make('issou'), 'role_id'=>1],
             ['login' => 'loic', 'password'=>Hash::make('loic'), 'role_id'=>1],
             ['login' => 'Brice', 'password'=>Hash::make('apps'), 'role_id'=>2],
         ];
-
+        //Rajout de plussieurs catégorie
         $categories = [
             ['name' => 'Processeur', 'created_at' => '2021-11-10 21:06:55'],
             ['name' => 'Carte graphique', 'created_at' => '2021-11-10 21:06:55'],
@@ -32,7 +33,7 @@ class DatabaseSeeder extends Seeder
             ['name' => 'SSD', 'created_at' => '2021-11-10 21:06:55'],
             ['name' => 'RAM', 'created_at' => '2021-11-10 21:06:55'],
         ];
-
+        //Rajout de plussieurs articles pour différentes catégories
         $articles = [
             ['name' => 'Ryzen 5 5600X', 'price' => '350', 'categorie_id' => '1', 'description'=> 'Le Ryzen 5 5600X est un processeur', 'created_at' => '2021-11-10 21:06:55'],
             ['name' => 'Ryzen 5 5800X', 'price' => '450', 'categorie_id' => '1', 'description'=> 'Le Ryzen 5 5800X est un processeur', 'created_at' => '2021-11-10 21:06:55'],
@@ -44,7 +45,7 @@ class DatabaseSeeder extends Seeder
             ['name' => 'Samsung 970 EVO ', 'price' => '100', 'categorie_id' => '5', 'description'=> 'Le Samsung 970 EVO est un SSD', 'created_at' => '2021-11-10 21:06:55'],
             ['name' => 'HyperX 2x16Go', 'price' => '120', 'categorie_id' => '6', 'description'=> '2x16Go de ram de la marque HyperX', 'created_at' => '2021-11-10 21:06:55'],
         ];
-
+        //Rajout de commentaires pour chacun des articles
         $commentaires = [
             ['commentaire' => 'Super !', 'note'=> '5','user_id'=>'1', 'article_id'=>'1', 'created_at' => '2021-11-10 21:06:55'],
             ['commentaire' => 'Bof', 'note'=> '2', 'user_id'=>'2', 'article_id'=>'1', 'created_at' => '2021-11-10 21:06:55'],
@@ -64,9 +65,8 @@ class DatabaseSeeder extends Seeder
             ['commentaire' => 'Bof', 'note'=> '2', 'user_id'=>'2', 'article_id'=>'8', 'created_at' => '2021-11-10 21:06:55'],
             ['commentaire' => 'Super !', 'note'=> '5','user_id'=>'1', 'article_id'=>'9', 'created_at' => '2021-11-10 21:06:55'],
             ['commentaire' => 'Bof', 'note'=> '2', 'user_id'=>'2', 'article_id'=>'9', 'created_at' => '2021-11-10 21:06:55'],
-
         ];
-
+        //Exécution des seeders
         DB::table('roles')->insert($roles);
         DB::table('users')->insert($users);
         DB::table('categories')->insert($categories);

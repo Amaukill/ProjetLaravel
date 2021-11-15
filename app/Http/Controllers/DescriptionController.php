@@ -12,7 +12,7 @@ use Illuminate\View\View;
 
 class DescriptionController extends Controller {
 
-
+    //Permet de récupérer la description de l'article sélectionné
     public function GetArticleDescription($id) {
         $SpecificArticle = Article::where('id', $id)->get();
         $Commentaire = Commentaire::where('article_id', $id)->orderBy('created_at', 'desc')->get();
@@ -22,7 +22,7 @@ class DescriptionController extends Controller {
         }
             return view("description",compact('SpecificArticle','Commentaire','login'));
     }
-
+    //Fonction pour réaliser l'ajout d'un commentaire
     public function ajoutCommentaire(Request $request) {
         $request->validate([
             'commentaire'=> ['required'],
@@ -38,7 +38,7 @@ class DescriptionController extends Controller {
         ]);
         return $this->GetArticleDescription($request->article_id);
     }
-
+        //Fonction pour supprimer un commentaire
         public function DeleteCommentByUser_Id($id){
         $commentaire=Commentaire::find($id);
             $articleId= $commentaire->article_id;
