@@ -1,4 +1,4 @@
-
+{{-- cette page affiche toutes les article et permet d'accèder à la description des articles et leurs commentaires . Les admins peuvent les modifier et les supprimer--}}
 <x-app-layout>
     <x-slot name="header"  >
         <h2 class="font-semibold text-xl text-gray-800 leading-tight pb-2">

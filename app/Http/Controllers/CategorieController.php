@@ -9,6 +9,7 @@ use Illuminate\View\View;
 
 class CategorieController extends Controller
 {
+    //Ajout d'une catégorie et création de son log
     public function AddCategorie(Request $request){
         $request->validate([
             'name'=> ['required','max:100','min:1']
@@ -31,9 +32,7 @@ class CategorieController extends Controller
     public function ModifyCategorie(Request $request, $id){
         $categorie=Categorie::find($id);
         $request->validate([
-            'name'=> ['max:100','min:0'],
-            'price'=> ['max:100','min:0'],
-            'description'=> ['max:500','min:0']
+            'name'=> ['max:100','min:0']
         ]);
         // update en fonction des valeurs récupéré
         $modif = '';
@@ -54,6 +53,7 @@ class CategorieController extends Controller
         //retour sur la page de modification avec les valeurs modifié
         return $this->GetCategorieById($id);
     }
+    // suppression de la catégorie et création du log de suppression
     public function DeleteCategorie($id){
         $categorie = Categorie::find($id);
         $log =Log::create([

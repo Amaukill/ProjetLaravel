@@ -18,6 +18,7 @@
                     <x-nav-link :href="route('categories')" :active="request()->routeIs('categories')">
                         {{ __('Catégories') }}
                     </x-nav-link>
+                    {{-- vérifie si l'user connecté est admin pour afficher les liens--}}
                     @if(Auth::user()->role_id == 1)
                     <x-nav-link :href="route('ajouter_categorie')" :active="request()->routeIs('ajouter_categorie')">
                         {{ __('Ajouter une catégorie') }}

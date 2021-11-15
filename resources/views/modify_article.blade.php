@@ -1,3 +1,4 @@
+{{--Seul les admins peuvent accèder à cette page--}}
 @if(Auth::user()->role_id == 1)
 <x-app-layout>
     <x-slot name="header"  >
@@ -18,6 +19,7 @@
             </div>
             </div>
             <div class="d-flex flex-row justify-content-between ">
+                {{-- formulaire qui récupère l'id de l'article et les informations rentrés --}}
             <form  method="POST"  action="{{route('ModifyArticleId' ,['id' => $id])}}" class="form-inline my-2 my-lg-0" class="d-flex flex-row">
                 @csrf
                 <div class="d-flex flex-column">

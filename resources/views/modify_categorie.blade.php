@@ -1,3 +1,4 @@
+{{--Seul les admins peuvent accèder à cette page--}}
 @if(Auth::user()->role_id == 1)
     <x-app-layout>
         <x-slot name="header"  >

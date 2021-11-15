@@ -1,3 +1,5 @@
+{{--Seul les admins peuvent accèder à cette page--}}
+{{--permet de récupérer les logs selon le user_id ,l'action effectué ou le type de l'objet affecté--}}
 @if(Auth::user()->role_id == 1)
     <x-app-layout>
         <x-slot name="header"  >
